@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Center</title>
+    <link rel="stylesheet" href="Lab1-Part1-Team2.css">
+</head>
+<body>
+    <h1 id="web-title">Electronics Center</h1>
+    <form>
+        <label for="type">Type:</label>
+        <select id="type" name="type" style="float: right;">
+            <option value="0">Laptop</option>
+            <option value="1">Notebook</option>
+            <option value="2">Tablet</option>
+            <option value="3">Cellphone</option>
+        </select>
+        
+        <label for="action">Action:</label>
+        <select id="action" name="action" style="float: left;">
+            <option value="0">Archive</option>
+            <option value="1">Edit</option>
+            <option value="2">Delete</option>
+            <option value="3">Collection</option>
+        </select>
+    </form>
+    
+    <div class="responsive-table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Year</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td data-label=""><input type="radio" name="device"><img src="../imgs/laptop.jpg" alt="Device 1" width="250"></td>
+                    <td data-label="Name">ThinkPad T14s Gen 4 AMD (14ʺ)</td>
+                    <td data-label="Company">Lenovo</td>
+                    <td data-label="Year">2023</td>
+                    <td data-label="Type">Laptop</td>
+                    <td data-label="Actions">
+                        <button>View Details</button>
+                        <button>Download Image</button>
+                        <button>Compare Products</button>
+                        <button>Add to Wishlist</button>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td data-label=""><input type="radio" name="device"><img src="../imgs/notebook.jpg" alt="Device 2" width="250"></td>
+                    <td data-label="Name">Yoga 7 2-in-1 (14" AMD)</td>
+                    <td data-label="Company">Lenovo</td>
+                    <td data-label="Year">2022</td>
+                    <td data-label="Type">Notebook</td>
+                    <td data-label="Actions">
+                        <button>View Details</button>
+                        <button>Download Image</button>
+                        <button>Compare Products</button>
+                        <button>Add to Wishlist</button>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td data-label=""><input type="radio" name="device"><img src="../imgs/tablet.jpg" alt="Device 3" width="250"></td>
+                    <td data-label="Name">Galaxy Tab S10 Ultra</td>
+                    <td data-label="Company">Samsung</td>
+                    <td data-label="Year">2024</td>
+                    <td data-label="Type">Tablet</td>
+                    <td data-label="Actions">
+                        <button>View Details</button>
+                        <button>Download Image</button>
+                        <button>Compare Products</button>
+                        <button>Add to Wishlist</button>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td data-label=""><input type="radio" name="device"><img src="../imgs/cellphone.jpg" alt="Device 3" width="250"></td>
+                    <td data-label="Name">Google Pixel 9 Pro XL</td>
+                    <td data-label="Company">Google</td>
+                    <td data-label="Year">2024</td>
+                    <td data-label="Type">Cellphone</td>
+                    <td data-label="Actions">
+                        <button>View Details</button>
+                        <button>Download Image</button>
+                        <button>Compare Products</button>
+                        <button>Add to Wishlist</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
