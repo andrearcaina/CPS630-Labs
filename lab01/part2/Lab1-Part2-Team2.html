@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronics Center</title>
     <link rel="stylesheet" href="Lab1-Part2-Team2.css">
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="Lab1-Part2-Team2.js"></script>
 </head>
+
 <body>
     <h1 id="web-title">Electronics Center</h1>
     <form>
@@ -16,7 +20,7 @@
             <option value="2">Tablet</option>
             <option value="3">Cellphone</option>
         </select>
-        
+
         <label for="action">Action:</label>
         <select id="action" name="action">
             <option value="0">Archive</option>
@@ -25,7 +29,7 @@
             <option value="3">Collection</option>
         </select>
     </form>
-    
+
     <table>
         <thead>
             <tr>
@@ -37,64 +41,118 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        
+
         <tbody>
             <tr>
-                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/laptop.jpg" alt="Device 1"></td>
-                <td data-label="Name">ThinkPad T14s Gen 4 AMD (14ʺ)</td>
-                <td data-label="Company">Lenovo</td>
-                <td data-label="Year">2023</td>
-                <td data-label="Type">Laptop</td>
+                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/laptop.jpg" alt="Device 1"
+                        id="image1-fade"></td>
+                <td data-label="Name">
+                    <p class="info-image1-fade">ThinkPad T14s Gen 4 AMD (14ʺ) </p>
+                </td>
+                <td data-label="Company">
+                    <p class="info-image1-fade">Lenovo </p>
+                </td>
+                <td data-label="Year">
+                    <p class="info-image1-fade">2023 </p>
+                </td>
+                <td data-label="Type">
+                    <p class="info-image1-fade">Laptop </p>
+                </td>
                 <td data-label="Actions">
                     <button>View Details</button>
                     <button>Download Image</button>
                     <button>Compare Products</button>
                     <button>Add to Wishlist</button>
+                    <button style="background-color:cyan;" id="fade-out1">Image Fade Out</button>
+                    <button style="background-color:cyan;" id="fade-in1">Image Fade In</button>
+                    <button style="background-color:greenyellow;" id="info-fade-out1">Information Fade Out</button>
+                    <button style="background-color:greenyellow;" id="info-fade-in1">Information Fade In</button>
                 </td>
             </tr>
-            
+
             <tr>
-                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/notebook.jpg" alt="Device 2"></td>
-                <td data-label="Name">Yoga 7 2-in-1 (14" AMD)</td>
-                <td data-label="Company">Lenovo</td>
-                <td data-label="Year">2022</td>
-                <td data-label="Type">Notebook</td>
+                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/notebook.jpg" alt="Device 2"
+                        id="image2-fade"></td>
+                <td data-label="Name">
+                    <p class="info-image2-fade">Yoga 7 2-in-1 (14" AMD) </p>
+                </td>
+                <td data-label="Company">
+                    <p class="info-image2-fade">Lenovo </p>
+                </td>
+                <td data-label="Year">
+                    <p class="info-image2-fade">2022 </p>
+                </td>
+                <td data-label="Type">
+                    <p class="info-image2-fade">Notebook </p>
+                </td>
                 <td data-label="Actions">
                     <button>View Details</button>
                     <button>Download Image</button>
                     <button>Compare Products</button>
                     <button>Add to Wishlist</button>
+                    <button style="background-color:cyan;" id="fade-out2">Image Fade Out</button>
+                    <button style="background-color:cyan;" id="fade-in2">Image Fade In</button>
+                    <button style="background-color:greenyellow;" id="info-fade-out2">Information Fade Out</button>
+                    <button style="background-color:greenyellow;" id="info-fade-in2">Information Fade In</button>
                 </td>
             </tr>
-            
+
             <tr>
-                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/tablet.jpg" alt="Device 3"></td>
-                <td data-label="Name">Galaxy Tab S10 Ultra</td>
-                <td data-label="Company">Samsung</td>
-                <td data-label="Year">2024</td>
-                <td data-label="Type">Tablet</td>
+                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/tablet.jpg" alt="Device 3"
+                        id="image3-fade"></td>
+                <td data-label="Name">
+                    <p class="info-image3-fade">Galaxy Tab S10 Ultra </p>
+                </td>
+                <td data-label="Company">
+                    <p class="info-image3-fade">Samsung </p>
+                </td>
+                <td data-label="Year">
+                    <p class="info-image3-fade">2024 </p>
+                </td>
+                <td data-label="Type">
+                    <p class="info-image3-fade">Tablet </p>
+                </td>
                 <td data-label="Actions">
                     <button>View Details</button>
                     <button>Download Image</button>
                     <button>Compare Products</button>
                     <button>Add to Wishlist</button>
+                    <button style="background-color:cyan;" id="fade-out3">Image Fade Out</button>
+                    <button style="background-color:cyan;" id="fade-in3">Image Fade In</button>
+                    <button style="background-color:greenyellow;" id="info-fade-out3">Information Fade Out</button>
+                    <button style="background-color:greenyellow;" id="info-fade-in3">Information Fade In</button>
                 </td>
             </tr>
-            
+
             <tr>
-                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/cellphone.jpg" alt="Device 4"></td>
-                <td data-label="Name">Google Pixel 9 Pro XL</td>
-                <td data-label="Company">Google</td>
-                <td data-label="Year">2024</td>
-                <td data-label="Type">Cellphone</td>
+                <td data-label="Select"><input type="radio" name="device"><img src="../imgs/cellphone.jpg"
+                        alt="Device 4" id="image4-fade"></td>
+                <td data-label="Name">
+                    <p class=info-image4-fade> Google Pixel 9 Pro XL</p>
+                </td>
+                <td data-label="Company">
+                    <p class=info-image4-fade> Google</p>
+                </td>
+                <td data-label="Year">
+                    <p class=info-image4-fade> 2024</p>
+                </td>
+                <td data-label="Type">
+                    <p class=info-image4-fade> Cellphone</p>
+                </td>
                 <td data-label="Actions">
                     <button>View Details</button>
                     <button>Download Image</button>
                     <button>Compare Products</button>
                     <button>Add to Wishlist</button>
+                    <button style="background-color:cyan;" id="fade-out4">Image Fade Out</button>
+                    <button style="background-color:cyan;" id="fade-in4">Image Fade In</button>
+                    <button style="background-color:greenyellow;" id="info-fade-out4">Information Fade Out</button>
+                    <button style="background-color:greenyellow;" id="info-fade-in4">Information Fade In</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </body>
+
+
 </html>
