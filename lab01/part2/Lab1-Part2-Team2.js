@@ -68,4 +68,112 @@ $(document).ready(function () {
   });
 
 
+  // For Title onHover
+  $("#web-title").hover(function () {
+    $(this).css({
+      backgroundColor: "#DB7093",
+      height: "60px",
+      width: "30%",
+    });
+  }, function () {
+    $(this).css({
+      backgroundColor: "#FFB6C1",
+      height: "50px",
+      width: "25%",
+    });
+  })
+  //For Buttons onHover
+
+  //Image Fade In/Out Buttons
+  for (let i = 1; i< 5; i++) {
+    $(`#fade-in${i}`).hover(function () {
+      $(this).css({
+        backgroundColor: "#95B9C7",
+        height: 30,
+      });
+    }, function () {
+      $(this).css({
+        backgroundColor: "cyan",
+        height: 20,
+      })
+    });
+    $(`#fade-out${i}`).hover(function () {
+      $(this).css({
+        backgroundColor: "#95B9C7",
+        height: 30,
+      });
+    }, function () {
+      $(this).css({
+        backgroundColor: "cyan",
+        height: 20,
+      })
+    });
+  }
+  
+  //Info Fade In/Out Buttons and animate
+  for (let i = 1; i < 5; i++) {
+    $(`#info-fade-in${i}`).hover(function () {
+      $(this).css({
+        backgroundColor: "yellow",
+        height: 30,
+      });
+    }, function () {
+      $(this).css({
+        backgroundColor: "greenyellow",
+        height: 20,
+      })
+    });
+    $(`#info-fade-out${i}`).hover(function () {
+      $(this).css({
+        backgroundColor: "yellow",
+        height: 30,
+      });
+    }, function () {
+      $(this).css({
+        backgroundColor: "greenyellow",
+        height: 20,
+      })
+    });
+    $(`#animate${i}`).hover(function () {
+      $(this).css({
+        backgroundColor: "#F88379",
+        height: 30,
+      });
+    }, function () {
+      $(this).css({
+        backgroundColor: "#FF3131",
+        height: 20,
+      })
+    });
+  }
+
+  // Animations when Animate buttons are clicked
+  for (let i = 1; i < 5; i++) {
+    $(`#animate${i}`).click(function () {
+      const element = $(`.info-image${i}-fade`);
+
+      if (!element.data("switch")) {
+        element.animate(
+          {
+            opacity: 1,
+            fontSize: "24px",
+            fontWeight: "bold",
+          },
+          500
+        );
+        element.data("switch", true);
+      }
+      else {
+        element.animate(
+          {
+            opacity: 1,
+            fontSize: "16px",
+            fontWeight: "normal",
+          },
+          500
+        );
+        element.data("switch", false);
+      }
+    });
+  }
 });
