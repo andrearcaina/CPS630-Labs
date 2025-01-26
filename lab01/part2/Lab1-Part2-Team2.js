@@ -32,8 +32,6 @@ $(document).ready(function () {
     $(".info-image2-fade").fadeIn();
   });
 
-
-
   //For Tablet Image
   $("#fade-out3").click(function () {
     $("#image3-fade").fadeOut();
@@ -50,7 +48,6 @@ $(document).ready(function () {
     $(".info-image3-fade").fadeIn();
   });
 
-
   //For Phone Image
   $("#fade-out4").click(function () {
     $("#image4-fade").fadeOut();
@@ -66,7 +63,6 @@ $(document).ready(function () {
   $("#info-fade-in4").click(function () {
     $(".info-image4-fade").fadeIn();
   });
-
 
   // For Title onHover
   $("#web-title").hover(function () {

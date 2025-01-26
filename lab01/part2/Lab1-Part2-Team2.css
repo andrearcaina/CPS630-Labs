@@ -55,8 +55,26 @@ img {
     font-weight: bold;
     margin-bottom: 2rem;
     text-align: center;
+    display: flex; 
+    width: 25%; 
+    height: 50px; 
+    background-color: #FFB6C1; 
+    border-radius: 10px; 
+    align-items: center; 
+    justify-content: center;
 }
 
+#fade-out1, #fade-out2, #fade-out3, #fade-out4, #fade-in1, #fade-in2, #fade-in3, #fade-in4 {
+    background-color: cyan;
+}
+
+#info-fade-out1, #info-fade-out2, #info-fade-out3, #info-fade-out4, #info-fade-in1, #info-fade-in2, #info-fade-in3, #info-fade-in4 {
+    background-color: greenyellow;
+}
+
+#animate1, #animate2, #animate3, #animate4 {
+    background-color: #FF3131;
+}
 
 @media screen and (max-width: 425px) {
     #web-title {
