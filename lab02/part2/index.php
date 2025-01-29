@@ -9,9 +9,48 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// query to select data from table
+$sql = "CREATE TABLE IF NOT EXISTS StRec (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(30) NOT NULL,
+    lastName VARCHAR(30) NOT NULL,
+    year INT(4)
+)";
+
+if (mysqli_query($conn, $sql)) {
+    echo "Table Student Records created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+$sql = "SELECT COUNT(*) as count FROM StRec";
+$result = mysqli_query($conn, $sql);
+$row = $result->fetch_assoc();
+
+if ($row["count"] == 0) {
+    $sql = "INSERT INTO StRec (firstName, lastName, year)
+            VALUES 
+                ('John', 'Smith', 1),
+                ('Jack', 'Smick', 2),
+                ('Jane', 'Snide', 3),
+                ('Jake', 'Sneer', 4),
+                ('Jace', 'Smeek', 5)";
+
+    if (mysqli_query($conn, $sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
+$sql = "DELETE FROM StRec WHERE id=5";
+if (mysqli_query($conn, $sql) === TRUE) {
+    echo "\nRecord deleted successfully";
+} else {
+    echo "Error deleting record: " . mysqli_error($conn);
+}
+
 $sql = "SELECT id, firstName, lastName, year FROM StRec";
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -24,7 +63,6 @@ $result = $conn->query($sql);
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <p> test </p>
     <table>
         <tr>
             <th>ID</th>
@@ -35,7 +73,6 @@ $result = $conn->query($sql);
         
         <?php
         if ($result->num_rows > 0) {
-            // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"]. "</td>";
@@ -47,7 +84,7 @@ $result = $conn->query($sql);
         } else {
             echo "<tr><td colspan='4'>0 results</td></tr>";
         }
-        $conn->close();
+        mysqli_close($conn);
         ?>
     </table>
 </body>
