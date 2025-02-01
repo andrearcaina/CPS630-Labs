@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "testing";
+$password = ""; // Default XAMPP password
 $dbname = "testnew";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -52,6 +52,8 @@ if (mysqli_query($conn, $sql) === TRUE) {
 $sql = "SELECT id, firstName, lastName, year FROM StRec";
 $result = mysqli_query($conn, $sql);
 
+$sql = "SELECT id, firstName, lastName, year, major, school FROM strec2";
+$result2 = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +81,34 @@ $result = mysqli_query($conn, $sql);
                 echo "<td>" . $row["firstName"]. "</td>";
                 echo "<td>" . $row["lastName"]. "</td>";
                 echo "<td>" . $row["year"]. "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='4'>0 results</td></tr>";
+        }
+        ?>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Year</th>
+            <th>Major</th>
+            <th>School</th>
+        </tr>
+        
+        <?php
+        if ($result2->num_rows > 0) {
+            while($row = $result2->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id"]. "</td>";
+                echo "<td>" . $row["firstName"]. "</td>";
+                echo "<td>" . $row["lastName"]. "</td>";
+                echo "<td>" . $row["year"]. "</td>";
+                echo "<td>" . $row["major"]. "</td>";
+                echo "<td>" . $row["school"]. "</td>";
                 echo "</tr>";
             }
         } else {
