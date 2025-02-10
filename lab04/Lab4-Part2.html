@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Display Browsers</h1>
+
+
+<div id="display-area"></div>
+
+<script>
+let msg = "<p>User-agent header: " + navigator.userAgent + "</p>";
+if (navigator.userAgent.includes("Chrome")){
+    msg += "<p> Web Browser Detected is Chrome!!!! </p>"
+} else if (navigator.userAgent.includes("Firefox")){
+    msg += "<p> Web Browser Detected is FireFox!!!! </p>"
+} else {
+    "<p> Web Browser Detected is Other!!!!</p>"
+}
+
+
+document.getElementById("display-area").innerHTML = msg;
+</script>
+
+
+</body>
+</html>
