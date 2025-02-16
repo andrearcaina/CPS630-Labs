@@ -1,3 +1,3 @@
 <footer>
-    <p>2025 - AA, BL, FQ</p>
+    <p>Loquito LLC, All Rights Reserved</p>
 </footer>
