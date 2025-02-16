@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
-    <link rel="stylesheet" href="./stylesSignUpIn.css">
+    <link rel="stylesheet" href="../public/styles/general.css">
+    <link rel="stylesheet" href="../public/styles/signup.css">
 </head>
 <body>
-    <header>
-        <h1>Nav Bar Goes Here</h1>
-    </header>
+    <?php include '../components/header.php'; ?>
     <main>
         <h2>Sign Up</h2>
         <center><form id="signupform">
@@ -25,8 +24,9 @@
             <input type="text" id="password" required><br><br>
             <input type="submit" value="Submit">
         </form></center>
-        <p>Already have an account?</p><a href="./signin.html">Sign In Here!</a>
+        <p>Already have an account?</p><a href="./signin.php">Sign In Here!</a>
     </main>
-    <script src="./signup.js"></script>
+    <?php include '../components/footer.php'; ?>
+    <script src="../public/scripts/signup.js"></script>
 </body>
 </html>
