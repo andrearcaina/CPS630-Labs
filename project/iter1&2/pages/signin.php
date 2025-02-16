@@ -13,11 +13,11 @@ session_start();
 <body>
     <?php include '../components/header.php'; ?>
     <main>
-        <h2>Sign In</h2>
         <?php if (isset($_SESSION["error"])): ?>
             <div class="error"><?php echo $_SESSION["error"]; ?></div>
             <?php unset($_SESSION["error"]); ?>
-        <?php endif; ?>
+        <?php endif; ?><br>
+        <h2>Sign In</h2>
         <center><form id="signinform" action="" method="post">
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email" required><br><br>
@@ -60,7 +60,7 @@ session_start();
             $_SESSION["fname"] = $row["FirstName"];
             $_SESSION["lname"]= $row["LastName"];
             // Redirect the user to the Home Page
-            //header("Location: signup.php");
+            header("Location: home.php");
             exit();
         }
     }
