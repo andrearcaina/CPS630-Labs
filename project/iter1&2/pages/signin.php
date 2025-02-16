@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Page</title>
-    <link rel="stylesheet" href="../public/styles/general.css">
+    <link rel="stylesheet" href="../public/styles/global.css">
     <link rel="stylesheet" href="../public/styles/signin.css">
 </head>
 <body>
