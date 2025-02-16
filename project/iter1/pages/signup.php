@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In Page</title>
+    <title>Sign Up Page</title>
     <link rel="stylesheet" href="./stylesSignUpIn.css">
 </head>
 <body>
@@ -11,15 +11,22 @@
         <h1>Nav Bar Goes Here</h1>
     </header>
     <main>
-        <h2>Sign In</h2>
-        <center><form id="signinform">
+        <h2>Sign Up</h2>
+        <center><form id="signupform">
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" required><br><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" required><br><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" required><br><br>
             <label for="email">Email:</label><br>
             <input type="text" id="email" required><br><br>
             <label for="password">Password:</label><br>
             <input type="text" id="password" required><br><br>
             <input type="submit" value="Submit">
         </form></center>
-        <p>Don't have an account yet?</p><a href="./signup.html">Sign Up Here!</a>
+        <p>Already have an account?</p><a href="./signin.php">Sign In Here!</a>
     </main>
+    <script src="./signup.js"></script>
 </body>
 </html>
