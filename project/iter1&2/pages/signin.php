@@ -11,9 +11,7 @@ session_start();
     <link rel="stylesheet" href="../public/styles/signin.css">
 </head>
 <body>
-    <header>
-        <h1>Nav Bar Goes Here</h1>
-    </header>
+    <?php include '../components/header.php'; ?>
     <main>
         <h2>Sign In</h2>
         <?php if (isset($_SESSION["error"])): ?>
@@ -29,6 +27,7 @@ session_start();
         </form></center>
         <p>Don't have an account yet?</p><a href="./signup.php">Sign Up Here!</a>
     </main>
+    <?php include '../components/footer.php'; ?>
     <?php
     $servername = "localhost";
     $username = "root";
