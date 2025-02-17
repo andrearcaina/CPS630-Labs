@@ -1,16 +1,16 @@
-CREATE TABLE USERS (
+CREATE TABLE users (
     UserID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(30) NOT NULL,
-    TelNo VARCHAR(30) NOT NULL,
-    Email VARCHAR(50) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    LastName varchar(255) NOT NULL,
+    Email varchar(255) NOT NULL,
     DOB DATE NOT NULL,
-    CityCode VARCHAR(30) NOT NULL,
-    Password VARCHAR(30) NOT NULL,
+    Pass varchar(255) NOT NULL,
+    TelNo varchar(10) NOT NULL,
+    Address varchar(255) NOT NULL,
+    City varchar(255) NOT NULL,
+    PostalCode varchar(20) NOT NULL,
     Balance DECIMAL(10,2) NOT NULL
-);
+)
 
-INSERT INTO USERS (Name, TelNo, Email, DOB, CityCode, Password, Balance) 
-VALUES ('Felipe Quiroga', '1234567890', 'tanke@gmail.com', '2003-06-17', '12345', 'tumami123', 1000.00);
-
-INSERT INTO USERS (Name, TelNo, Email, DOB, CityCode, Password, Balance)
-VALUES ('Juan Perez', '1234567890', 'jaunaito@outlook.com', '2003-06-17', '45555', 'tetetete', 5005.00);
+INSERT INTO USERS (FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) 
+VALUES ('Felipe', 'Quiroga', 'tanke@gmail.com', '2003-06-17', 'tumami123', '1234567890', '31 Burningham Road', 'Ajax', 'L1S7D4', 1000.00);

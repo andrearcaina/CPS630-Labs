@@ -21,15 +21,23 @@ session_start();
         <h2>Sign Up</h2>
         <center><form id="signupform" action="" method="post">
             <label for="fname">First Name:</label><br>
-            <input type="text" id="fname" name="fname"required><br><br>
+            <input type="text" id="fname" name="fname"required><br>
             <label for="lname">Last Name:</label><br>
-            <input type="text" id="lname" name="lname" required><br><br>
+            <input type="text" id="lname" name="lname" required><br>
             <label for="dob">Date of Birth:</label><br>
-            <input type="date" id="dob" name="dob" required><br><br>
+            <input type="date" id="dob" name="dob" required><br>
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email" required><br><br>
+            <input type="text" id="email" name="email" required><br>
             <label for="password">Password:</label><br>
-            <input type="text" id="password" name="password" required><br><br>
+            <input type="text" id="password" name="password" required><br>
+            <label for="telno">Telephone Number:</label><br>
+            <input type="text" id="telno" name="telno" required><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address" required><br>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" required><br>
+            <label for="postalcode">Postal Code:</label><br>
+            <input type="text" id="postalcode" name="postalcode" required><br>
             <input type="submit" value="Submit">
         </form></center>
         <p>Already have an account?</p><a href="./signin.php">Sign In Here!</a>
@@ -41,9 +49,11 @@ session_start();
     $username = "root";
     $password = ""; // Default XAMPP password
     $dbname = "project1";
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $port = 3307; // Custom port for XAMPP
+
+    $conn = new mysqli($servername, $username, $password, $dbname, $port);
     if ($conn->connect_error) {
+        echo "<p>Connectoin Died</p>";
         die("Connection failed: " . $conn->connect_error);
     }
 
@@ -53,6 +63,11 @@ session_start();
         $dob = $_POST["dob"];
         $email = $_POST["email"];
         $password = $_POST["password"];
+        $telno = $_POST["telno"];
+        $address = $_POST["address"];
+        $city = $_POST["city"];
+        $postalcode = $_POST["postalcode"];
+        $balance = 0.00;
 
 
         // Execute Query to attempt to attempt to retrieve the user based on email to see if an account with that email already exists
@@ -61,7 +76,7 @@ session_start();
         $row = $result->fetch_assoc();
 
         if ($result->num_rows == 0) {
-            $sql = "INSERT INTO USERS(FirstName, LastName, Email, DOB, Pass) Values('$fname','$lname','$email','$dob','$password')";
+            $sql = "INSERT INTO USERS(FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) Values('$fname','$lname','$email','$dob','$password', '$telno', '$address', '$city', '$postalcode', $balance)";
             $result = mysqli_query($conn, $sql);
             if($result) {
                 $_SESSION["error"] = "Succesfully Created Account, Please Log in with your credentials now.";

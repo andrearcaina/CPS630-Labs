@@ -37,15 +37,16 @@ session_start();
 
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
     if ($conn->connect_error) {
+        echo "<p>Connectoin Died</p>";
         die("Connection failed: " . $conn->connect_error);
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $conn->real_escape_string($_POST["email"]);
-        $password = $conn->real_escape_string($_POST["password"]);
+        $email = $_POST["email"];
+        $password = $_POST["password"];
 
         // Execute Query to attempt to retrieve the user based on email and password provided
-        $sql = "SELECT * FROM USERS WHERE Email='$email' AND Password='$password'";
+        $sql = "SELECT * FROM USERS WHERE Email='$email' AND Pass='$password'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 0) {
