@@ -1,5 +1,5 @@
 <header>
-    <img src="../public/images/logo.jpg" alt="Logo" class="logo">
+    <img src="../public/images/logoremovebg.png" alt="Logo" class="logo">
     <h1>Loquito</h1>
     <nav>
         <ul>
