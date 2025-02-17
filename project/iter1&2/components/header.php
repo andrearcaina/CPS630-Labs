@@ -5,7 +5,7 @@ session_start();
     <img src="../public/images/logoremovebg.png" alt="Logo" class="logo">
     <h1>Loquito</h1>
     <nav>
-        <ul>
+        <ul style= "text-decoration: none;">
             <li><a href="../index.php">Home</a></li>
             <li><a href="../pages/about.php">About</a></li>
             <li><a href="../pages/reviews.php">Reviews</a></li>
