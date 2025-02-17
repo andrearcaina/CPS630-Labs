@@ -1,5 +1,9 @@
 /* Sign in form CSS */
 /* Style the form container */
+#account-text {
+    margin-bottom: 43vh;
+}
+
 #signinform {
     background: white;
     padding: 30px;
