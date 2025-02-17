@@ -20,9 +20,9 @@ session_start();
         <h2>Sign In</h2>
         <center><form id="signinform" action="" method="post">
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" required><br><br>
             <label for="password">Password:</label><br>
-            <input type="text" id="password" name="password" required><br><br>
+            <input type="password" id="password" name="password" required><br><br>
             <input type="submit" value="Submit">
         </form></center>
         <p>Don't have an account yet?</p><a href="./signup.php">Sign Up Here!</a>
@@ -33,37 +33,39 @@ session_start();
     $username = "root";
     $password = ""; // Default XAMPP password
     $dbname = "project1";
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $port = 3307; // Custom port for XAMPP
+
+    $conn = new mysqli($servername, $username, $password, $dbname, $port);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+        $email = $conn->real_escape_string($_POST["email"]);
+        $password = $conn->real_escape_string($_POST["password"]);
 
-        // Execute Query to attempt to attempt to retrieve the user based on email and password provided
-        $sql = "SELECT * FROM USERS WHERE email='$email' AND pass='$password'";
-        $result = mysqli_query($conn, $sql);
-        $row = $result->fetch_assoc();
+        // Execute Query to attempt to retrieve the user based on email and password provided
+        $sql = "SELECT * FROM USERS WHERE Email='$email' AND Password='$password'";
+        $result = $conn->query($sql);
 
         if ($result->num_rows == 0) {
             $_SESSION["error"] = "Invalid Email or Password. Please try again.";
             header("Location: signin.php");
             exit();
-        }
-        else {
+        } else {
+            $row = $result->fetch_assoc();
             echo "<p>Login successful! Welcome!</p>";
             // Keep the user's info for this session
             $_SESSION["email"] = $email;
             $_SESSION["fname"] = $row["FirstName"];
-            $_SESSION["lname"]= $row["LastName"];
+            $_SESSION["lname"] = $row["LastName"];
             // Redirect the user to the Home Page
             header("Location: home.php");
             exit();
         }
     }
+
+    $conn->close();
     ?>
 </body>
 </html>
