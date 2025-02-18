@@ -35,7 +35,54 @@
         </div>
     </main></center>
 
+
+    
+
+    <h2>Hey There <?php echo $_SESSION['fname']; ?>! would like to proceed to checkout?</h2>
+    <h3>We have detected that you are from Toronto</h3>
+
+    <form id="orderform" action="../api/orders.php" method="POST">
+        
+        <label for="store">Select Store</label><br></br> <!-- Stores are hard coded for now -->
+        <select name="Store" id="lang">
+            <option value="Store1">Store1</option>
+            <option value="Store2">Store2</option>
+            <option value="Store3">Store3</option>
+            <option value="Store4">Store4</option>
+        </select> 
+        <br></br>
+
+        <h2>Credit Card Information</h2>
+        <label for="cardNumber">Card Number</label><br>
+        <input type="text" id="cardNumber" name="cardNumber" required><br><br>
+
+        <label for="expiryDate">Expiration Date</label><br>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required><br><br>
+
+        <label for="cvv">CVV</label><br>
+        <input type="text" id="cvv" name="cvv" required><br><br>
+
+        <input type="submit" value="Purchase">
+    </form>
+
+    <script>
+    document.getElementById('orderform').addEventListener('submit', async (event) => {
+      event.preventDefault(); //Stop form submission
+      const formData = new FormData(event.target); //Gather form data
+      const response = await fetch(event.target.action, { //Send data to server
+        method: 'POST',
+        body: formData,
+      });
+      const result = await response.json(); 
+      alert(result.status === 'success' ? 'Order submitted!' : 'Error: Try again.'); //Notify user
+    });
+  </script>
+
+
+
     <?php include '../components/footer.php'; ?>
 </body>
+
+
 </html>
 
