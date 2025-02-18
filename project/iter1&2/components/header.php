@@ -2,8 +2,17 @@
 session_start();
 ?>
 <header>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+
+
+
+   
     <img src="../public/images/logoremovebg.png" alt="Logo" class="logo">
-    <h1>Loquito</h1>
+    <h1 style="font-family: Barriecito, serif;font-weight: 500;font-style: normal; font-size: 50px; margin: 0;">Loquito</h1>
     <nav>
         <ul style= "text-decoration: none;">
             <li><a href="../index.php">Home</a></li>

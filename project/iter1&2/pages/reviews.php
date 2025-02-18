@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/styles/global.css">
     <link rel="stylesheet" href="../public/styles/reviews.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+
+
     <title>About Us</title>
 </head>
 <body>
@@ -12,10 +19,12 @@
 <?php include '../components/header.php'; ?>
   
 <body>
-  <div class="reviews-container">
+
     <center>
-      <h1>Customer Reviews</h1>
+      <h1 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px">Customer Reviews</h1>
     </center>
+
+  <div class="reviews-container">
     <div class="review">
       <h3>Fast Shipping</h3>
       <p>I ordered an S25 Ultra and it shipped very fast</p>
@@ -36,6 +45,13 @@
       <p>I bought an iPhone 16 and I'm super happy with the price and fast shipping</p>
       <div class="rating">Rating: 5/5</div>
       <div class="author">– Joe Smith</div>
+    </div>
+
+    <div class="review">
+      <h3>I met the love of my life here!!!!</h3>
+      <p>And we're happily married for 5 years going strong!!!</p>
+      <div class="rating">Rating: 5/5</div>
+      <div class="author">– Nico Salamanca</div>
     </div>
 
   </div>
