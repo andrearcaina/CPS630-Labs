@@ -13,6 +13,9 @@
 <body>
     <?php if (isset($_SESSION["fname"])): ?>
         <h2>Hello, <?php echo $_SESSION["fname"]; ?>!</h2>
+        <center><div id="cart">
+            Drop Items here
+        </div></center>
     <?php endif; ?>
     <div class="container">
         <aside class="filter-section">

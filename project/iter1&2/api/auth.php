@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["email"] = $email;
             $_SESSION["fname"] = $row["FirstName"];
             $_SESSION["lname"] = $row["LastName"];
+            $_SESSION["user_id"] = $row["UserID"];
             $response['redirect'] = '../index.php';
         }
     }
