@@ -2,15 +2,10 @@
 session_start();
 ?>
 <header>
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
-
-
-
-   
+    
     <img src="../public/images/logoremovebg.png" alt="Logo" class="logo">
     <h1 style="font-family: Barriecito, serif;font-weight: 500;font-style: normal; font-size: 50px; margin: 0;">Loquito</h1>
     <nav>
@@ -20,7 +15,9 @@ session_start();
             <li><a href="../pages/reviews.php">Reviews</a></li>
             <li><a href="../pages/services.php">Type of Service</a></li>
             <?php if (isset($_SESSION["email"])): ?>
-                <li><a href="../pages/cart.php">Shopping Cart</a></li>
+                <?php if ($_SESSION['email'] != 'loquito@admin.com'): ?>
+                    <li><a href="../pages/cart.php">Shopping Cart</a></li>
+                <?php endif; ?>
                 <li><a href="../api/logout.php">Logout</a></li>
             <?php else: ?>
                 <li><a href="../pages/signup.php">Sign Up</a></li>

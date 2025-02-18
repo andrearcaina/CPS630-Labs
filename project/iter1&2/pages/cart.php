@@ -19,6 +19,10 @@
             header('Location: signin.php');
             exit();
         }
+        if (isset($_SESSION['email']) == 'loquito@admin.com') {
+            header('Location: ../index.php');
+            exit();
+        }
     ?>
 
     <center>
