@@ -29,14 +29,14 @@
                 
                 <label for="os">Operating System:</label>
                 <select id="os" name="os">
-                    <option value="">Select OS</option>
+                    <option value="">All OS</option>
                     <option value="android">Android</option>
                     <option value="ios">iOS</option>
                 </select>
                 
                 <label for="brand">Brand:</label>
                 <select id="brand" name="brand">
-                    <option value="">Select Brand</option>
+                    <option value="">All Brands</option>
                     <option value="apple">Apple</option>
                     <option value="samsung">Samsung</option>
                     <option value="google">Google</option>
