@@ -9,7 +9,6 @@ $UserId = $_SESSION['user_id']; //Gets the UserID from the session
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
-  
   $dateIssued = date('Y-m-d'); //Date issues is always the current date
 
   $PaymentCode = rand(100000, 999999); //Generates a random 6 digit number for the payment code
@@ -29,22 +28,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $row = $result->fetch_assoc(); //Fetchs the first and only row
   $TotalPrice = $row['totalPrice']; //Assigns the total price to the value from the DB
 
-  // Print out the total price
-  echo "Total Price: $TotalPrice";
-
   $StoreId = 1; //Hard coded to 1 for now
 
+  //Checks to see if the shopping cart is empty, if it is, then it will not place order
+  $sql = "SELECT COUNT(*) AS itemCount FROM shopping WHERE UserID = $UserId";
+  $result = $conn->query($sql); 
+  $row = $result->fetch_assoc(); 
+  $itemCount = $row['itemCount']; 
+
+  if ($itemCount == 0) {
+    // Shopping cart is empty
+    $_SESSION['alert_message'] = 'Your shopping cart is empty. Please add items to cart before placing an order';
+    header("Location: ../pages/cart.php");
+    exit();
+  }
 
 
   $sql = "INSERT INTO orders (UserID, StoreID, DateIssued, ArrivalDate, TotalPrice, PaymentCode) 
           VALUES ('$UserId', '$StoreId', '$dateIssued', '$ArrivalDate', '$TotalPrice', '$PaymentCode')";
   
-  $result = $conn->query($sql); // Executes the query
+  $result = $conn->query($sql); //Executse query
   if ($result) {
-      $response = ["success" => true, "message" => "Order placed successfully"];
+        //Now that the order is sucessfully placed, we can remove items from shopping cart
+        $sql = "DELETE FROM shopping WHERE UserID = $UserId";
+        $deleteResult = $conn->query($sql);
+ //Store alert message in session
+    $_SESSION['alert_message'] = 'Order placed successfully! Thanks for shopping with us!';
   } else {
-      $response = ["success" => false, "message" => "Error placing order: " . $conn->error];
+    $_SESSION['alert_message'] = 'Failed to place order. Please try again.';
   }
-echo json_encode($response); // Send JSON response
+  $conn->close();
+
+//Redirect to original page
+header("Location: ../pages/cart.php");
+} 
+
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  $sql = "SELECT * FROM orders WHERE UserID = $UserId";
+  $result = $conn->query($sql);
+
+  $items = array();
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $items[] = $row;
+    }
+  }
+  
+  echo json_encode($items);
+  $conn->close();
 }
+
+
+
 ?>
