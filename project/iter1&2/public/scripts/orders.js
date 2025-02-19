@@ -25,5 +25,19 @@ $(document).ready(function () {
     }).fail(function () {
         console.error('Error fetching items');
     });
+    // Fetch available stores from the API
+    $.get('../api/stores.php', function (stores) { //makes request to orders.php
+        const storeSelect = $('#lang'); // Store dropdown
+        storeSelect.empty();
 
+        if (stores.length > 0) {
+            stores.forEach(store => {
+                storeSelect.append(new Option(store.name, store.id));
+            });
+        } else { // This else statement should never trigger
+            storeSelect.append(new Option("No stores found", "-1"));
+        }
+    }).fail(function () {
+        console.error('Error fetching items');
+    });
 });

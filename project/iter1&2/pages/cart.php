@@ -55,16 +55,13 @@
     <!-- Purchase Shopping Cart Form -->
     <div class="purchase">
         <h2>Hey There <?php echo $_SESSION['fname']; ?>! Would like to proceed to checkout?</h2>
-        <h3>We have detected that you are from Toronto</h3>
+        <h3>We have registered that you are from <?php echo $_SESSION['city']; ?></h3>
 
         <form id="orderform" action="../api/orders.php" method="POST">
         
             <label for="store">Select Store</label><br></br> <!-- Stores are hard coded for now -->
             <select name="Store" id="lang">
-                <option value="Store 1">Store1</option>
-                <option value="Store 2">Store2</option>
-                <option value="Store 3">Store3</option>
-                <option value="Store 4">Store4</option>
+                <!-- Stores available will be populated by JavaScript -->
             </select> 
             <br></br>
 
