@@ -5,5 +5,5 @@
           rel="stylesheet">
 
 
-    <p style="font-family: 'Poppins', sans-serif; font-weight: 400;">Loquito LLC, All Rights Reserved</p>
+    <p style="font-family: 'Poppins', sans-serif; font-weight: 400;">The Phony Seal LLC, All Rights Reserved</p>
 </footer>
