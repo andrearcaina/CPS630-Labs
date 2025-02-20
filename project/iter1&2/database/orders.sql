@@ -6,5 +6,8 @@ CREATE TABLE orders (
   ArrivalDate DATE NOT NULL,
   TotalPrice DECIMAL(10, 2) NOT NULL,
   PaymentCode INT NOT NULL,
-  CONSTRAINT fk_orders_users FOREIGN KEY (UserID) REFERENCES users(UserID)
+  TruckID INT NOT NULL,
+  
+  CONSTRAINT fk_orders_users FOREIGN KEY (UserID) REFERENCES users(UserID),
+  CONSTRAINT fk_orders_store FOREIGN KEY (StoreID) REFERENCES stores(id)
 );
