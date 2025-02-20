@@ -9,32 +9,36 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="../public/scripts/items.js"></script>
     <link rel="stylesheet" href="../public/styles/home.css">
+
+
+
+
 </head>
 <body>
     <?php if (isset($_SESSION["fname"])): ?>
-        <h2>Hello, <?php echo $_SESSION["fname"]; ?>!</h2>
+        <h2 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px">Hello, <?php echo $_SESSION["fname"]; ?>!</h2>
         <center><div id="cart">
-            Drop Items here
+            Add Items to Shopping Cart Here
         </div></center>
     <?php endif; ?>
     <div class="container">
         <aside class="filter-section">
             <form id="filter-form">
-                <h3>Filter</h3>
-                <label for="price-range">Price:</label>
+                <h1>Filter</h1>
+                <label for="price-range"><h3>Price</h3></label>
                 <div id="price-range"></div>
                 <input type="hidden" id="price-min" name="price-min" value="0">
                 <input type="hidden" id="price-max" name="price-max" value="3000">
                 <p>Price: $<span id="price-min-display">0</span> - $<span id="price-max-display">3000</span></p>
                 
-                <label for="os">Operating System:</label>
+                <label for="os"><h3>Operating System</h3></label>
                 <select id="os" name="os">
                     <option value="">All OS</option>
                     <option value="android">Android</option>
                     <option value="ios">iOS</option>
                 </select>
                 
-                <label for="brand">Brand:</label>
+                <label for="brand"><h3>Brand</h3></label>
                 <select id="brand" name="brand">
                     <option value="">All Brands</option>
                     <option value="apple">Apple</option>
@@ -49,7 +53,6 @@
             </form>
         </aside>
         <main class="items-section">
-            <h2>Items</h2>
             <div class="card-grid" id="item-list">
                 <!-- Items will be populated here by JavaScript -->
             </div>

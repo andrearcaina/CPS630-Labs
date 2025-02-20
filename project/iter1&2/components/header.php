@@ -5,6 +5,11 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
     
     <img src="../public/images/logoremovebg.png" alt="Logo" class="logo">
     <h1 style="font-family: Barriecito, serif;font-weight: 500;font-style: normal; font-size: 50px; margin: 0;">The Phony Seal</h1>

@@ -54,6 +54,14 @@
       <div class="author">– Nico Salamanca</div>
     </div>
 
+
+    <div class="review">
+      <h3>This store has literally changed my life</h3>
+      <p>I was tired of getting ripped off by my carrier. Finding this store is probably the best thing that has ever happened to me</p>
+      <div class="rating">Rating: 5/5</div>
+      <div class="author">– SpongeBob #1 Fan</div>
+    </div>
+
   </div>
 </body>
   

@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="../public/styles/cart.css">
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
+
+
+
     <title>Shopping Cart</title>
 </head>
 <body>

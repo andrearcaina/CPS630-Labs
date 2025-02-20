@@ -11,18 +11,18 @@
 </head>
 <body>
     <?php include '../components/header.php'; ?>
+    <h2 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px; margin-bottom: 0px;">Sign In</h2>
     <main>
         <?php if (isset($_SESSION["error"])): ?>
             <div class="error"><?php echo $_SESSION["error"]; ?></div>
             <?php unset($_SESSION["error"]); ?>
         <?php endif; ?><br>
-        <h2>Sign In</h2>
-        <center><form id="signinform" action="../api/auth.php" method="post">
+         <center><form id="signinform" action="../api/auth.php" method="post">
             <input type="hidden" name="signin" value="1">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
             <input type="submit" value="Submit">
         </form></center>
         <p>Don't have an account yet?</p>

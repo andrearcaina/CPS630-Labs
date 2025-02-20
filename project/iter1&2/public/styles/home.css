@@ -1,17 +1,19 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 0px;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #FBFBFB;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: "Poppins", serif;
 }
 
 .container {
+    margin-top: 30px;
+    margin-left: 250px;
     display: flex;
     max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
     flex: 1;
 }
@@ -20,9 +22,10 @@ body {
     width: 25%;
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(99, 97, 97, 0.1);
+    margin-right: 0px;
     box-sizing: border-box;
+    border-radius: 15px;
 }
 
 .filter-section h3 {
@@ -44,21 +47,26 @@ body {
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .filter-section button {
+    margin-top: 15px;
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #f39c12;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
+    font-family: "Poppins", serif;
+    font-size: 17px;
 }
 
 .filter-section button:hover {
-    background-color: #0056b3;
+    background-color: #e67e22;
 }
 
 .items-section {
@@ -78,7 +86,7 @@ body {
 
 .card {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #f7f3f3;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -108,7 +116,7 @@ body {
 }
 
 #cart {
-    width: 300px;
+    width: 600px;
     height: 200px;
     border: 2px dashed #333;
     background: #f8f8f8;
