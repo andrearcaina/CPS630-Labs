@@ -29,6 +29,8 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] != 'loquito@admin.com') {
                     <option value="truck">Truck</option>
                     <option value="users">Users</option>
                     <option value="shopping">Shopping</option>
+                    <option value="stores">Stores</option>
+                    <option value="inventory">Inventory</option>
                 </select>
                 <div id="form-fields"></div>
                 <button type="submit">Insert</button>
@@ -132,6 +134,38 @@ if (!isset($_SESSION['email']) || $_SESSION['email'] != 'loquito@admin.com') {
                 </thead>
                 <tbody>
                     <!-- Shopping will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-div">
+            <h2>Stores</h2>
+            <table id="stores-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Stores will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-div">
+            <h2>Inventory</h2>
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ItemID</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Stores will be populated here by JavaScript -->
                 </tbody>
             </table>
         </div>

@@ -150,6 +150,26 @@ $(document).ready(function() {
                 <label for="Quantity">Quantity:</label>
                 <input type="number" id="Quantity" name="Quantity" required>
             `;
+        } else if (table === 'stores') {
+            fields = `
+                <label for="ID">ID:</label>
+                <input type="number" id="ID" name="ID" required>
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" required>
+                <label for="Address">Quantity:</label>
+                <input type="text" id="Address" name="Address" required>
+            `;
+        } else if (table === 'inventory') {
+            fields = `
+                <label for="StoreID">StoreID:</label>
+                <input type="number" id="StoreID" name="StoreID" required>
+                <label for="ItemID">Item ID:</label>
+                <input type="number" id="ItemID" name="ItemID" required>
+                <label for="Quantity">Quantity:</label>
+                <input type="number" id="Quantity" name="Quantity" required>
+            `;
+        } else if (table === 'order') {
+
         }
         $('#form-fields').html(fields);
     }).trigger('change');
@@ -159,4 +179,7 @@ $(document).ready(function() {
     fetchTableData('truck');
     fetchTableData('users');
     fetchTableData('shopping');
+    fetchTableData('stores');
+    fetchTableData('inventory');
+    //fetchTableData('orders');
 });

@@ -7,4 +7,4 @@ CREATE TABLE orders (
   TotalPrice DECIMAL(10, 2) NOT NULL,
   PaymentCode INT NOT NULL,
   CONSTRAINT fk_orders_users FOREIGN KEY (UserID) REFERENCES users(UserID)
- );
+);
