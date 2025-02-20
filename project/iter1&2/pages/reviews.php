@@ -21,7 +21,7 @@
 <body>
 
     <center>
-      <h1 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px">Customer Reviews</h1>
+      <h1 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px;">Customer Reviews</h1>
     </center>
 
   <div class="reviews-container">
@@ -60,6 +60,14 @@
       <p>I was tired of getting ripped off by my carrier. Finding this store is probably the best thing that has ever happened to me</p>
       <div class="rating">Rating: 5/5</div>
       <div class="author">– SpongeBob #1 Fan</div>
+    </div>
+
+
+    <div class="review">
+      <h3>I HATE IPHONES</h3>
+      <p>I bought an Iphone 16 pro max and it absolutely sucks!!! Store however, was pretty damn good</p>
+      <div class="rating">Rating: 3/5</div>
+      <div class="author">– Holly Hedges</div>
     </div>
 
   </div>

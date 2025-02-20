@@ -18,7 +18,7 @@ session_start();
             <li><a href="../index.php">Home</a></li>
             <li><a href="../pages/about.php">About</a></li>
             <li><a href="../pages/reviews.php">Reviews</a></li>
-            <li><a href="../pages/services.php">Type of Service</a></li>
+            <li><a href="../pages/services.php">Services</a></li>
             <?php if (isset($_SESSION["email"])): ?>
                 <?php if ($_SESSION['email'] != 'loquito@admin.com'): ?>
                     <li><a href="../pages/cart.php">Shopping Cart</a></li>
