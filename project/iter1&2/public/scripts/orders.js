@@ -19,7 +19,7 @@ $(document).ready(function () {
     // FETCH ALL ORDERS AND POPULATE DROPDOWN
     $.get('../api/orders.php', function (orders) { //makes request to orders.php
         const orderSelect = $('#bang'); // selects order dropdown element to edit
-    
+
         orderSelect.empty();
         if (orders.length > 0) {
             orderSelect.append(new Option("All Orders", "-1")); // Default option to display all orders
@@ -36,12 +36,12 @@ $(document).ready(function () {
 
     //FUNCTION TO FETCH ALL ORDERS AND DISPLAY THEM BY DEFUALT
     function fetchAllOrders() {
-            $.get('../api/orders.php', function (items) { //makes request to orders.php to access the database
-                const orderList = $('#purchase-history'); //selects the element to edit
-                orderList.empty();
-                if (items.length > 0) {
-                    items.forEach(item => { //maps each order to a card and updates the page to include all orders
-                        const card = $(`
+        $.get('../api/orders.php', function (items) { //makes request to orders.php to access the database
+            const orderList = $('#purchase-history'); //selects the element to edit
+            orderList.empty();
+            if (items.length > 0) {
+                items.forEach(item => { //maps each order to a card and updates the page to include all orders
+                    const card = $(`
                             <div class="frame">
                                 <h3>Order ID: ${item.OrderID}</h3>
                                 <p>Store Name: ${item.name}</p>
@@ -52,15 +52,15 @@ $(document).ready(function () {
                                 <p>Truck ID: ${item.TruckID}</p>
                             </div>
                         `);
-                        orderList.append(card);
-                    });
-                } else { //if no orders are found
-                    const card = $('<div class="card"></div>').text('No orders found.');
                     orderList.append(card);
-                }
-            }).fail(function () { //if the request fails
-                console.error('Error fetching items');
-            });
+                });
+            } else { //if no orders are found
+                const card = $('<div class="card"></div>').text('No orders found.');
+                orderList.append(card);
+            }
+        }).fail(function () { //if the request fails
+            console.error('Error fetching items');
+        });
     }
     fetchAllOrders(); //DISPLAYS ALL ORDERS BY DEFAULT
 
@@ -101,4 +101,30 @@ $(document).ready(function () {
     }
     );
 
+
+    $.get('../api/invoice.php', function (invoiceDetails) {
+        const [FName, LName, City, Email, TotalPrice, DateIssued, ArrivalDate, Items] = invoiceDetails;
+        const invoice = $('#invoice');
+        invoice.empty();
+        console.log(invoiceDetails);
+        if (invoiceDetails.length > 0) {
+            const card = $(`
+                    <div class="frame">
+                        <p><strong>Name:</strong> ${FName} ${LName}</p>
+                        <p><strong>Total Price:</strong> $${TotalPrice}</p>
+                        <p><strong>City:</strong> ${City}</p>
+                        <p><strong>Email:</strong> ${Email}</p>
+                        <p><strong>Date Issued:</strong> ${DateIssued}</p>
+                        <p><strong>Arrival Date:</strong> ${ArrivalDate}</p>
+                        <p><strong>Items:</strong> ${Items}</p>
+                    </div>
+                `);
+            invoice.append(card);
+        } else {
+            const card = $('<div class="card"></div>').text('No invoices found.');
+            invoice.append(card);
+        }
+    }).fail(function () {
+        console.error('Error fetching items');
+    });
 });

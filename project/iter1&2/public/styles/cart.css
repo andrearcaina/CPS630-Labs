@@ -71,3 +71,8 @@ body{
   text-align: center;
   margin-top: 0px;
 }
+
+
+.payment {
+  display: flex;
+}

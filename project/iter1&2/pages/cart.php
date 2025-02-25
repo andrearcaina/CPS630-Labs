@@ -50,10 +50,12 @@
     </center>
 
 
-    <div>
-
-
-
+        <div class="purchase">
+            <h1>Order Details</h1>
+            <div id="invoice">
+                <!-- Invoice will be populated here by JavaScript -->
+            </div>
+        </div>
 
         <!-- Purchase Shopping Cart Form -->
         <div class="purchase">
@@ -84,8 +86,7 @@
 
                 <input type="submit" value="Purchase">
             </form>
-        </div>
-
+        </div>    
 
         <h1>Purchase History</h1>
 
@@ -98,12 +99,14 @@
 
 
         </form>
+
+
         <div class="purchase-grid" id="purchase-history">
             <!-- Purchase history will be populated here by JavaScript -->
         </div>
 
 
-    </div>
+
 
     <?php include '../components/footer.php'; ?>
     <script src="../public/scripts/updatecart.js"></script>
