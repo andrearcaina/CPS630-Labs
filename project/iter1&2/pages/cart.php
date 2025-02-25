@@ -57,6 +57,9 @@
 
     <div>
 
+
+
+
         <!-- Purchase Shopping Cart Form -->
         <div class="purchase">
             <h2>Hey There <?php echo $_SESSION['fname']; ?>! Would like to proceed to checkout?</h2>
@@ -94,7 +97,7 @@
         <form class="purchase">
             <label for="store">Search with Order ID</label><br></br>
             <select name="Purchases" id="bang">
-                <!-- Stores available will be populated by JavaScript -->
+                <!-- Purchases available will be populated by JavaScript -->
             </select>
             <br></br>
 
