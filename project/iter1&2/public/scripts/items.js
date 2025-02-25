@@ -36,7 +36,10 @@ $(document).ready(function() {
                             <h3>${item.Item_name}</h3>
                             <p>$${item.Price}</p>
                             <img src="${item.Image_URL}" alt="${item.Item_name}" class="card-image">
-                            <p>Quantity: ${item.Quantity}</p> 
+                            <div class="quantity-container">
+                                <button type="button" class="minus-btn" onclick="updateCart(false, ${item.ItemID})">-</button>
+                                <p>Quantity: ${item.Quantity}</p> 
+                                <button type="button" class="plus-btn" onclick="updateCart(true, ${item.ItemID})">+</button>
                         </div>
                     `);
                     itemList.append(card);

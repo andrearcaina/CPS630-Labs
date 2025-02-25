@@ -13,11 +13,6 @@
     <script src="../public/scripts/orders.js"></script>
     <link rel="stylesheet" href="../public/styles/home.css">
     <link rel="stylesheet" href="../public/styles/cart.css">
-
-
-
-
-
     <title>Shopping Cart</title>
 </head>
 
@@ -108,6 +103,7 @@
     </div>
 
     <?php include '../components/footer.php'; ?>
+    <script src="../public/scripts/updatecart.js"></script>
 </body>
 
 
