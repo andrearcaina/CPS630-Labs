@@ -106,7 +106,6 @@ $(document).ready(function () {
         const [FName, LName, City, Email, TotalPrice, DateIssued, ArrivalDate, Items] = invoiceDetails;
         const invoice = $('#invoice');
         invoice.empty();
-        console.log(invoiceDetails);
         if (invoiceDetails.length > 0) {
             const card = $(`
                     <div class="frame">

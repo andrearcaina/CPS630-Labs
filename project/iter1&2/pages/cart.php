@@ -13,6 +13,13 @@
     <script src="../public/scripts/orders.js"></script>
     <link rel="stylesheet" href="../public/styles/home.css">
     <link rel="stylesheet" href="../public/styles/cart.css">
+
+    <script src="../public/scripts/maps.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+
+
+
     <title>Shopping Cart</title>
 </head>
 
@@ -49,17 +56,23 @@
         </main>
     </center>
 
+    <h1>Destination Route</h1>
+    <div id="map" style="height: 500px; width: 50%; margin-left: auto; margin-right:auto;"></div>
 
-        <div class="purchase">
-            <h1>Order Details</h1>
+    <h1>Hey There <?php echo $_SESSION['fname']; ?>! Would like to proceed to checkout?</h1>
+    <div class="payment">
+
+        <div class="invoiceCard">
+            <h2>Order Details</h2>
             <div id="invoice">
                 <!-- Invoice will be populated here by JavaScript -->
             </div>
         </div>
 
+
+
         <!-- Purchase Shopping Cart Form -->
         <div class="purchase">
-            <h2>Hey There <?php echo $_SESSION['fname']; ?>! Would like to proceed to checkout?</h2>
             <h3>We have registered that you are from <?php echo $_SESSION['city']; ?></h3>
 
             <form id="orderform" action="../api/orders.php" method="POST">
@@ -86,24 +99,26 @@
 
                 <input type="submit" value="Purchase">
             </form>
-        </div>    
-
-        <h1>Purchase History</h1>
-
-        <form class="purchase">
-            <label for="store">Search with Order ID</label><br></br>
-            <select name="Purchases" id="bang">
-                <!-- Purchases available will be populated by JavaScript -->
-            </select>
-            <br></br>
-
-
-        </form>
-
-
-        <div class="purchase-grid" id="purchase-history">
-            <!-- Purchase history will be populated here by JavaScript -->
         </div>
+
+
+    </div>
+
+    <h1>Purchase History</h1>
+    <form class="purchase" style="margin-left: auto;">
+        <label for="store">Search with Order ID</label><br></br>
+        <select name="Purchases" id="bang">
+            <!-- Purchases available will be populated by JavaScript -->
+        </select>
+        <br></br>
+
+
+    </form>
+
+
+    <div class="purchase-grid" id="purchase-history">
+        <!-- Purchase history will be populated here by JavaScript -->
+    </div>
 
 
 
