@@ -1,0 +1,37 @@
+<html><head><title>test3-controller2</title></head><body><pre>
+ 
+<!DOCTYPE html>
+<html>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div ng-app="app1" ng-controller="cnt1">
+
+ StName: <input type="text" ng-model="name"><br>
+ StId: <input type="number" ng-model="id"><br>
+<br>
+ Student: {{name + ", id  " + id}}
+
+</div>
+
+<script>
+var app = angular.module('app1', []);
+app.controller('cnt1', function($scope) 
+{
+    $scope.name = "ali";
+    $scope.id = 447733900;
+});
+</script>
+
+</body>
+</html>
+
+<!--
+-------------------------------------------------------------
+Output:
+    Student: ali, id 447733900 
+
+-->
+</pre></body></html>

@@ -1,0 +1,32 @@
+<html ng-app="app"><head><title>test10-controller4-n</title></head><body><pre>
+ 
+     <!doctype html>
+    <html ng-app>
+    <head>
+                <title>AngularJS MVC Architecture</title>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body>
+                <div ng-controller="fullName">
+                         <p>{{Student.FName}}</p>
+                </div>
+                <script type="text/javascript">
+                var app = angular.module("app", []);
+
+                app.controller("fullName", function($scope) {
+                    $scope.Student = {
+                        'FName': 'John',
+                        'LName': 'Smith'
+                    };
+                });
+                </script>
+    </body>
+    </html>
+
+<!--
+----------------------------------
+Output:
+
+    John
+
+--></pre></body></html>
