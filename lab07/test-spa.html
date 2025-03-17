@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title> Lab 7 </title>
+    <!-- Step 3: input a version number for angularJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" 
+    integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Step 4: angularJS route CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js" 
+    integrity="sha512-y1qD3hz/IAf8W4+/UMLZ+CN6LIoUGi7srWJ3r1R17Hid8x0yXe+1B5ZelkaL1Mjzedzu0Cg3HBvDG02SAgSzBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <!-- step 3 : <h1>{{message}}</h1> -->
+    
+    <!-- step 4 : step 9 : add links -->
+    <a href="#/!home">Home</a>
+    <a href="#!aboutus">Aboutus</a>
+    <a href="#!reviews">Reviews</a>
+    
+    <!-- step 5 : define ng-view -->
+    <div ng-view></div>
+
+</body>
+</html>
