@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="../public/styles/cart.css">
 
     <script src="../public/scripts/maps.js"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVib01x0u_hNR363HqE0zWPpAUwZDdw4k&callback=initMap"></script>
 
 
 
