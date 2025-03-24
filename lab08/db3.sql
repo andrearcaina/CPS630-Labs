@@ -1,0 +1,6 @@
+CREATE TABLE users3 (
+    UserID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(255),
+    Salt VARCHAR(255),
+    Password VARCHAR(255)
+);
