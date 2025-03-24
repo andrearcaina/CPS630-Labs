@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="pages/signin/signin.css">
+    <!-- <script src="../public/scripts/auth.js"></script> -->
+</head>
+<body>
+    <h2 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px; margin-bottom: 0px;">Sign In</h2>
+    <main>
+        <center><form id="signinform" action="../api/auth.php" method="post">
+            <input type="hidden" name="signin" value="1">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Submit">
+        </form></center>
+        <p>Don't have an account yet?</p>
+        <!-- <p id="account-text"><a href="./signup.php">Sign Up Here!</a></p> !-->
+    </main>
+</body>
+</html>

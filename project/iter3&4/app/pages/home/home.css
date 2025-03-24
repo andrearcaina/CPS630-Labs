@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Poppins", serif;
+}
+
+.container {
+    margin-top: 30px;
+    margin-left: 250px;
+    display: flex;
+    max-width: 1200px;
+    padding: 20px;
+    flex: 1;
+}
+
+.filter-section {
+    width: 25%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(99, 97, 97, 0.1);
+    margin-right: 0px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.filter-section h3 {
+    margin-top: 0;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-section input[type="radio"] {
+    margin-right: 10px;
+}
+
+.filter-section select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.filter-section button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Poppins", serif;
+    font-size: 17px;
+}
+
+.filter-section button:hover {
+    background-color: #e67e22;
+}
+
+.items-section {
+    width: 75%;
+    box-sizing: border-box;
+}
+
+.items-section h2 {
+    margin-top: 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #f7f3f3;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.card img.card-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.footer {
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#cart {
+    width: 600px;
+    height: 200px;
+    border: 2px dashed #333;
+    background: #f8f8f8;
+    text-align: center;
+    line-height: 200px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers horizontally */
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%; /* Ensures it spans the full card width */
+}
+
+.minus-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.plus-btn {
+    background-color: #eb1018;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}

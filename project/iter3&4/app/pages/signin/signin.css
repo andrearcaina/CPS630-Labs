@@ -1,0 +1,92 @@
+/* Sign in form CSS */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the form container */
+#account-text {
+    margin-bottom: 43vh;
+}
+
+#signinform {
+    margin-top: 0px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 325px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the form labels */
+#signinform label {
+    font-weight: bold;
+    display: block;
+    margin-left:auto;
+    margin-top: 0px;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+
+/* Style the input fields */
+#signinform input[type="text"],
+#signinform input[type="email"] {
+    width: 77%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Add focus effect on input fields */
+#signinform input[type="text"]:focus,
+#signinform input[type="email"]:focus {
+    border-color: #4facfe;
+    padding: 10px;
+    outline: none;
+}
+
+/* Style the input fields */
+#signinform input[type="text"],
+#signinform input[type="password"] {
+    width: 77%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+/* Add focus effect on input fields */
+#signinform input[type="text"]:focus,
+#signinform input[type="password"]:focus {
+    border-color: #4facfe;
+    outline: none;
+}
+
+/* Style the submit button */
+#signinform input[type="submit"] {
+    background: #f39c12;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 120px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s;
+}
+
+/* Hover effect for submit button */
+#signinform input[type="submit"]:hover {
+    background: #00c9ff;
+}
