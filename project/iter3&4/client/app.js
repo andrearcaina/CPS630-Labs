@@ -53,24 +53,51 @@ app.config(function($routeProvider) {
             controller: 'CartController'
         })
 
+        .when('/logout', {
+            template: '',
+            controller: 'LogoutController'
+        })
+
         .otherwise({
             redirectTo: '/home'
         });
 });
 
-app.controller("SessionController", function($scope, $http) {
-    $http.get('http://localhost:8000/session.php', {withCredentials: true})
-        .then(function (response) {
+app.controller('LogoutController', function($scope, $http, $location, $timeout) {
+    $http.post('http://localhost:8000/logout.php', {}, { withCredentials: true })
+        .then(function(response) {
             console.log(response);
-            if (response.data.email) {
-                $scope.email = response.data.email;
-                
+
+            $scope.loggedIn = false;
+            $scope.session = {};
+
+            $location.path('/home');
+        
+            $timeout(function() {
+                window.location.reload();
+            }, 0);
+        })
+        .catch(function(error) {
+            console.error('Error logging out:', error);
+        });
+});
+
+app.controller('SessionController', function($scope, $http) {
+    $scope.session = {};
+
+    // Fetch session data from the backend
+    $http.get('http://localhost:8000/session.php', { withCredentials: true })
+        .then(function(response) {
+            $scope.session = response.data;
+
+            if ($scope.session.loggedIn) {
+                $scope.loggedIn = $scope.session.loggedIn;
+                console.log("User is logged in:", $scope.session);
             } else {
-                $scope.responseMessage = response.data.error;
+                console.log("User is not logged in.");
             }
         })
         .catch(function(error) {
-            $scope.responseMessage = "Error submitting Form";
-            console.error('Error', error);
-    })
-})
+            console.error('Error fetching session data:', error);
+        });
+});

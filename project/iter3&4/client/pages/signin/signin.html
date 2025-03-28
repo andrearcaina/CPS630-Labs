@@ -3,15 +3,22 @@
 <body>
     <h2 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px; margin-bottom: 0px;">Sign In</h2>
     <main ng-controller="SignInController">
-        <center><form id="signinform" ng-submit="submitForm()">
-            <input type="hidden" ng-model="formData.signin" value="1">
-            <label for="email">Email</label>
-            <input type="email" id="email" ng-model="formData.email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" ng-model="formData.password" required>
-            <input type="submit" value="Submit">
-        </form></center>
+        <center>
+            <form id="signinform" ng-submit="submitForm()">
+                <label for="email">Email</label>
+                <input type="email" id="email" ng-model="formData.email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" ng-model="formData.password" required>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </center>
+
+        <!-- Error message -->
+        <p style="color: red;" ng-if="errorMessage">{{ errorMessage }}</p>
+
         <p>Don't have an account yet?</p>
-        <!-- <p id="account-text"><a href="./signup.php">Sign Up Here!</a></p> !-->
+        <p id="account-text"><a href="#!signup">Sign Up Here!</a></p>
     </main>
 </body>
