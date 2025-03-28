@@ -5,6 +5,7 @@ CREATE TABLE users (
     Email varchar(255) NOT NULL,
     DOB DATE NOT NULL,
     Pass varchar(255) NOT NULL,
+    Salt varchar(255) NOT NULL,
     TelNo varchar(10) NOT NULL,
     Address varchar(255) NOT NULL,
     City varchar(255) NOT NULL,
@@ -12,8 +13,4 @@ CREATE TABLE users (
     Balance DECIMAL(10,2) NOT NULL
 )
 
-INSERT INTO USERS (FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) 
-VALUES ('Felipe', 'Quiroga', 'tanke@gmail.com', '2003-06-17', 'tumami123', '1234567890', '31 Burningham Road', 'Ajax', 'L1S7D4', 1000.00);
-
-INSERT INTO USERS (FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) 
-VALUES ('Admin', 'Loquito', 'loquito@admin.com', 'admin', 'admin', '1234567890', '15 Admin Avenue', 'Aurora', 'D2F7C5', 99999999.99);
+ 
