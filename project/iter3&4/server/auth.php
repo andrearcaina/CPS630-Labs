@@ -5,7 +5,6 @@ include '../database/config.php';
 header('Content-Type: application/json');
 
 $response = array('redirect' => '');
-
 //Read JSON input sent from angularJS
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -32,14 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($conn, $sql);
             if($result) {
                 $_SESSION["error"] = "Successfully Created Account, Please Log in with your credentials now.";
-                $response['redirect'] = '../pages/signin.php';
+                $response['redirect'] = '../pages/signin.html';
             } else {
                 $_SESSION["error"] = "Something went wrong, please try again.";
-                $response['redirect'] = '../pages/signup.php';
+                $response['redirect'] = '../pages/signup.html';
             }
         } else {
             $_SESSION["error"] = "There already exists an account with that email. Please Sign In or try again with a different email";
-            $response['redirect'] = '../pages/signup.php';
+            $response['redirect'] = '../pages/signup.html';
         }
     } elseif (isset($data["signin"])) {
         // Signin logic
@@ -51,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result->num_rows == 0) {
             $_SESSION["error"] = "Invalid Email or Password. Please try again.";
-            $response['redirect'] = '../pages/signin.php';
+            $response['redirect'] = '../pages/signin.html';
         } else {
             $row = $result->fetch_assoc();
             $_SESSION["email"] = $email;

@@ -57,3 +57,20 @@ app.config(function($routeProvider) {
             redirectTo: '/home'
         });
 });
+
+app.controller("SessionController", function($scope, $http) {
+    $http.get('http://localhost:8000/session.php', {withCredentials: true})
+        .then(function (response) {
+            console.log(response);
+            if (response.data.email) {
+                $scope.email = response.data.email;
+                
+            } else {
+                $scope.responseMessage = response.data.error;
+            }
+        })
+        .catch(function(error) {
+            $scope.responseMessage = "Error submitting Form";
+            console.error('Error', error);
+    })
+})
