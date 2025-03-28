@@ -23,9 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "SELECT * FROM USERS WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
 
+        // Function to generate a random salt
+        function generateRandomSalt(){
+            return base64_encode(random_bytes(12));
+          }
+        $salt = generateRandomSalt();
+
+        // Hash the password with the salt
+        $password = md5($password.$salt);
+
         if ($result->num_rows == 0) {
-            $sql = "INSERT INTO USERS(FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) 
-                    VALUES('$fname','$lname','$email','$dob','$password', '$telno', '$address', '$city', '$postalcode', $balance)";
+            $sql = "INSERT INTO USERS(FirstName, LastName, Email, DOB, Pass, Salt, TelNo, Address, City, PostalCode, Balance) 
+                    VALUES('$fname','$lname','$email','$dob','$password','$salt', '$telno', '$address', '$city', '$postalcode', $balance)";
             $result = mysqli_query($conn, $sql);
             if($result) {
                 $_SESSION["error"] = "Successfully Created Account, Please Log in with your credentials now.";
@@ -43,8 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $sql = "SELECT * FROM USERS WHERE Email='$email' AND Pass='$password'";
+        //Select the salt from database corresponding to the email sent
+        $sql = "SELECT Salt FROM USERS WHERE Email='$email'";
+        $resultSalt = mysqli_query($conn, $sql);
+        $rowSalt = mysqli_fetch_assoc($resultSalt);
+        $salt = $rowSalt['Salt'];
+
+        // Hash the password with the salt
+        $hashpass = md5($password.$salt);
+
+        $sql = "SELECT * FROM USERS WHERE Email='$email' AND Pass='$hashpass'";
         $result = $conn->query($sql);
+
 
         if ($result->num_rows == 0) {
             $_SESSION["error"] = "Invalid Email or Password. Please try again.";
