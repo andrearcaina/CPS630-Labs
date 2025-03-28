@@ -1,0 +1,8 @@
+CREATE TABLE shopping (
+    UserID INT UNSIGNED NOT NULL,
+    ItemID INT NOT NULL,
+    Quantity INT NOT NULL,
+    PRIMARY KEY (UserID, ItemID),
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    FOREIGN KEY (ItemID) REFERENCES item(ItemID)
+);
