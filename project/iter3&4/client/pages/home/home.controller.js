@@ -45,7 +45,7 @@ app.controller("HomeController", function ($scope, $http, $timeout) {
                 }
 
                 $timeout(function () {
-                    $scope.makeItemsDraggable();
+                    $scope.draggable();
                 }, 0);
             })
             .catch(function (error) {
@@ -54,11 +54,11 @@ app.controller("HomeController", function ($scope, $http, $timeout) {
             });
     };
 
-    $scope.applyFilters = function () {
+    $scope.filterItems = function () {
         $scope.fetchItems($scope.filters);
     };
 
-    $scope.makeItemsDraggable = function () {
+    $scope.draggable = function () {
         $(".card").draggable({
             revert: "invalid",
             cursor: "move",
