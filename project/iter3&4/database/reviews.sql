@@ -2,5 +2,5 @@ CREATE TABLE reviews (
     ReviewID INT AUTO_INCREMENT PRIMARY KEY,
     Review TEXT NOT NULL,
     Rating INT NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    FOREIGN KEY (UserID) REFERENCES users(UserID)
 );

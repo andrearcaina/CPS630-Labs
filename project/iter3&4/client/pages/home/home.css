@@ -155,3 +155,8 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+
+#price-range {
+    width: 100%;
+    margin: 20px 0;
+}
