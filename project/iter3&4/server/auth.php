@@ -6,18 +6,21 @@ header('Content-Type: application/json');
 
 $response = array('redirect' => '');
 
+//Read JSON input sent from angularJS
+$data = json_decode(file_get_contents("php://input"), true);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["signup"])) {
+    if (isset($data["signup"])) {
         // Signup logic
-        $fname = $_POST["fname"];
-        $lname = $_POST["lname"];
-        $dob = $_POST["dob"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $telno = $_POST["telno"];
-        $address = $_POST["address"];
-        $city = $_POST["city"];
-        $postalcode = $_POST["postalcode"];
+        $fname = $data["fname"];
+        $lname = $data["lname"];
+        $dob = $data["dob"];
+        $email = $data["email"];
+        $password = $data["password"];
+        $telno = $data["telno"];
+        $address = $data["address"];
+        $city = $data["city"];
+        $postalcode = $data["postalcode"];
         $balance = 0.00;
 
         $sql = "SELECT * FROM USERS WHERE email='$email'";
@@ -38,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["error"] = "There already exists an account with that email. Please Sign In or try again with a different email";
             $response['redirect'] = '../pages/signup.php';
         }
-    } elseif (isset($_POST["signin"])) {
+    } elseif (isset($data["signin"])) {
         // Signin logic
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+        $email = $data["email"];
+        $password = $data["password"];
 
         $sql = "SELECT * FROM USERS WHERE Email='$email' AND Pass='$password'";
         $result = $conn->query($sql);
@@ -56,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["lname"] = $row["LastName"];
             $_SESSION["user_id"] = $row["UserID"];
             $_SESSION["city"] = $row["City"];
-            $response['redirect'] = '../index.php';
+            $response['redirect'] = '../index.html';
         }
     }
 }
