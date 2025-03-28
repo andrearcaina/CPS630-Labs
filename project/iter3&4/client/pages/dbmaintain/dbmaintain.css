@@ -58,12 +58,21 @@ body {
     align-items: center;
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.table-div {
+    width: 100%; /* Make the table container take up the full width */
+    overflow-x: auto; /* Add horizontal scrolling for smaller screens */
 }
 
 table {
-    width: 100%;
+    width: 100%; /* Make the table take up the full width */
     border-collapse: collapse;
     margin-bottom: 20px;
+    font-size: 16px;
+    text-align: left;
 }
 
 table, th, td {
@@ -77,6 +86,7 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+    font-weight: bold;
 }
 
 button {
@@ -92,8 +102,18 @@ button:hover {
     background-color: #0056b3;
 }
 
-.table-div {
-    width: 50%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+/* Add hover effect for table rows */
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    th, td {
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
 }

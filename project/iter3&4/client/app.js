@@ -10,16 +10,14 @@ app.config(function($routeProvider) {
             controller: 'HomeController'
         })
         .when('/about', {
-            templateUrl: 'pages/about/about.html',
-            controller: 'AboutController'
+            templateUrl: 'pages/about/about.html'
         })
         .when('/reviews', {
             templateUrl: 'pages/reviews/reviews.html',
             controller: 'ReviewsController'
         })
         .when('/services', {
-            templateUrl: 'pages/services/services.html',
-            controller: 'ServicesController'
+            templateUrl: 'pages/services/services.html'
         })
         .when('/signin', {
             templateUrl: 'pages/signin/signin.html',
@@ -71,6 +69,8 @@ app.controller('SessionController', function($scope, $http, $rootScope) {
                 $scope.session = response.data;
                 $scope.loggedIn = $scope.session.loggedIn;
                 $scope.admin = $scope.session.isAdmin;
+
+                $rootScope.session = $scope.session;
 
                 if ($scope.loggedIn) {
                     console.log("User is logged in:", $scope.session);
