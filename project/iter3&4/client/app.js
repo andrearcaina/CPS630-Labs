@@ -29,75 +29,67 @@ app.config(function($routeProvider) {
             templateUrl: 'pages/signup/signup.html',
             controller: 'SignUpController'
         })
-        /* If the admin is signed in, redirect the home page to the dbmaintain page
-        can use this in the future or use the isAdmin function in the home controller or something
-
-        .when('/home', {
-            templateUrl: 'pages/dbmaintain/dbmaintain.html',
-            controller: 'DbMaintainController'
-        }) 
-        
-        but for now use /dbmaintain
-        
-        */
-
         .when('/dbmaintain', {
             templateUrl: 'pages/dbmaintain/dbmaintain.html',
             controller: 'DbMaintainController'
         })
-
-        // same for cart
-
         .when('/cart', {
             templateUrl: 'pages/cart/cart.html',
             controller: 'CartController'
         })
-
         .when('/logout', {
             template: '',
             controller: 'LogoutController'
         })
-
         .otherwise({
             redirectTo: '/home'
         });
 });
 
-app.controller('LogoutController', function($scope, $http, $location, $timeout) {
+app.controller('LogoutController', function($scope, $http, $location, $rootScope) {
     $http.post('http://localhost:8000/logout.php', {}, { withCredentials: true })
         .then(function(response) {
             console.log(response);
 
-            $scope.loggedIn = false;
-            $scope.session = {};
-
+            $rootScope.$broadcast('sessionUpdated');
+            
             $location.path('/home');
-        
-            $timeout(function() {
-                window.location.reload();
-            }, 0);
         })
         .catch(function(error) {
             console.error('Error logging out:', error);
         });
 });
 
-app.controller('SessionController', function($scope, $http) {
+app.controller('SessionController', function($scope, $http, $rootScope) {
+    $scope.loggedIn = false;
+    $scope.admin = false;
     $scope.session = {};
 
-    // Fetch session data from the backend
-    $http.get('http://localhost:8000/session.php', { withCredentials: true })
-        .then(function(response) {
-            $scope.session = response.data;
-
-            if ($scope.session.loggedIn) {
+    $scope.fetchSession = function() {
+        $http.get('http://localhost:8000/session.php', { withCredentials: true })
+            .then(function(response) {
+                $scope.session = response.data;
                 $scope.loggedIn = $scope.session.loggedIn;
-                console.log("User is logged in:", $scope.session);
-            } else {
-                console.log("User is not logged in.");
-            }
-        })
-        .catch(function(error) {
-            console.error('Error fetching session data:', error);
-        });
+                $scope.admin = $scope.session.isAdmin;
+
+                if ($scope.loggedIn) {
+                    console.log("User is logged in:", $scope.session);
+                } else {
+                    console.log("User is not logged in.");
+                }
+            })
+            .catch(function(error) {
+                console.error('Error fetching session data:', error);
+                $scope.loggedIn = false;
+                $scope.admin = false;
+            });
+    };
+
+    // initial session fetch
+    $scope.fetchSession();
+
+    // listen for session updates based on login/logout
+    $rootScope.$on('sessionUpdated', function() {
+        $scope.fetchSession();
+    });
 });

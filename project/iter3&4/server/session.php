@@ -1,19 +1,26 @@
 <?php
-// Inside session.php
 session_start();
-include '../database/config.php';
+
+include '../config/cors.php';
+
 header('Content-Type: application/json');
-$response = array();
 
-print_r($_SESSION); // Check session contents for debugging
+error_log("Session ID: " . session_id());
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    if (isset($_SESSION["email"])) {
-        $response['email'] = $_SESSION['email'];
-    } else {
-        $response['error'] = "User is not signed in"; // Fixed typo here
-    }
+if (isset($_SESSION['user_id'])) {
+    echo json_encode([
+        'loggedIn' => true,
+        'user_id' => $_SESSION['user_id'],
+        'fname' => $_SESSION['fname'],
+        'lname' => $_SESSION['lname'],
+        'email' => $_SESSION['email'],
+        'city' => $_SESSION['city'],
+        'isAdmin' => isset($_SESSION['isAdmin']) ? $_SESSION['isAdmin'] : false
+    ]);
+} else {
+    echo json_encode([
+        'loggedIn' => false,
+        'error' => 'User is not signed in'
+    ]);
 }
-
-echo json_encode($response);  // Ensure response is valid JSON
 ?>

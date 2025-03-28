@@ -1,6 +1,6 @@
 <?php
 session_start(); # Starts the session or resumes an existing one
-include '../database/config.php'; # contains database connection information
+include '../config/db.php'; # contains database connection information
 
 header('Content-Type: application/json'); #Content type of response is JSON
 

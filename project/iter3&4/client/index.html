@@ -41,12 +41,14 @@
         <h1 style="font-family: Barriecito, serif;font-weight: 500;font-style: normal; font-size: 50px; margin: 0;">The Phony Seal</h1>
         <nav>
             <ul style="text-decoration: none;">
-                <li><a href="#!home">Home</a></li>
+                <li ng-if="!admin"><a href="#!home">Home</a></li>
+                <li ng-if="admin"><a href="#!dbmaintain">DB Maintain</a></li>
+
                 <li><a href="#!about">About</a></li>
                 <li><a href="#!reviews">Reviews</a></li>
                 <li><a href="#!services">Services</a></li>
                 
-                <li ng-if="loggedIn"><a href="#!cart">Shopping Cart</a></li>
+                <li ng-if="loggedIn && !admin"><a href="#!cart">Shopping Cart</a></li>
                 <li ng-if="loggedIn"><a href="#!logout">Logout</a></li>
                 <li ng-if="!loggedIn"><a href="#!signup">Sign Up</a></li>
                 <li ng-if="!loggedIn"><a href="#!signin">Sign In</a></li>
