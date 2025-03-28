@@ -1,11 +1,14 @@
 <?php
 session_start();
-include '../database/config.php';
+include '../config/db.php';
+include '../config/cors.php';
 
 header('Content-Type: application/json');
 
-$response = array('redirect' => '');
-//Read JSON input sent from angularJS
+error_log("Session auth ID: " . session_id());
+
+$response = array('status' => 'error', 'message' => '');
+// Read JSON input sent from AngularJS
 $data = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,23 +25,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $postalcode = $data["postalcode"];
         $balance = 0.00;
 
+        // Check if the email already exists
         $sql = "SELECT * FROM USERS WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
 
         if ($result->num_rows == 0) {
+            // Insert the new user
             $sql = "INSERT INTO USERS(FirstName, LastName, Email, DOB, Pass, TelNo, Address, City, PostalCode, Balance) 
                     VALUES('$fname','$lname','$email','$dob','$password', '$telno', '$address', '$city', '$postalcode', $balance)";
             $result = mysqli_query($conn, $sql);
-            if($result) {
-                $_SESSION["error"] = "Successfully Created Account, Please Log in with your credentials now.";
-                $response['redirect'] = '../pages/signin.html';
+
+            if ($result) {
+                $response['status'] = 'success';
+                $response['message'] = 'Successfully signed up. Please log in with your credentials.';
             } else {
-                $_SESSION["error"] = "Something went wrong, please try again.";
-                $response['redirect'] = '../pages/signup.html';
+                $response['message'] = 'Something went wrong. Please try again.';
             }
         } else {
-            $_SESSION["error"] = "There already exists an account with that email. Please Sign In or try again with a different email";
-            $response['redirect'] = '../pages/signup.html';
+            $response['message'] = 'An account with this email already exists. Please sign in or use a different email.';
         }
     } elseif (isset($data["signin"])) {
         // Signin logic
@@ -49,8 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $conn->query($sql);
 
         if ($result->num_rows == 0) {
-            $_SESSION["error"] = "Invalid Email or Password. Please try again.";
-            $response['redirect'] = '../pages/signin.html';
+            $response['message'] = 'Invalid email or password. Please try again.';
         } else {
             $row = $result->fetch_assoc();
             $_SESSION["email"] = $email;
@@ -58,7 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["lname"] = $row["LastName"];
             $_SESSION["user_id"] = $row["UserID"];
             $_SESSION["city"] = $row["City"];
-            $response['redirect'] = '../index.html';
+            $_SESSION["isAdmin"] = ($row["Email"] === "loquito@admin.com");
+
+            $response['status'] = 'success';
+            $response['message'] = 'Successfully logged in.';
         }
     }
 }

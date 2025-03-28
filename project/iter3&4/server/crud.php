@@ -1,17 +1,24 @@
 <?php
 session_start();
-include '../database/config.php';
+include '../config/db.php';
+include '../config/cors.php';
 
 header('Content-Type: application/json');
 
-$action = isset($_POST['action']) ? $_POST['action'] : (isset($_GET['action']) ? $_GET['action'] : '');
+$input = json_decode(file_get_contents('php://input'), true);
+$action = isset($input['action']) ? $input['action'] : (isset($_GET['action']) ? $_GET['action'] : '');
 
 $response = ['status' => 'error', 'message' => 'Invalid action'];
 
 switch ($action) {
     case 'insert':
-        $table = $_POST['table'];
-        $fields = $_POST['fields'];
+        $table = isset($input['table']) ? $input['table'] : '';
+        $fields = isset($input['fields']) ? $input['fields'] : [];
+
+        if (empty($table) || empty($fields)) {
+            $response = ['status' => 'error', 'message' => 'Table name or fields are missing'];
+            break;
+        }
 
         $columns = implode(", ", array_keys($fields));
         $values = implode("', '", array_map(function($value) use ($conn) {
@@ -26,11 +33,21 @@ switch ($action) {
         }
         break;
     case 'delete':
-        $table = $_POST['table'];
-        $id = $_POST['id'];
-        $id_column = $_POST['id_column'];
+        $table = isset($input['table']) ? $input['table'] : '';
+        $record = isset($input['record']) ? $input['record'] : [];
 
-        $sql = "DELETE FROM $table WHERE $id_column = $id";
+        if (empty($table) || empty($record)) {
+            $response = ['status' => 'error', 'message' => 'Table name or record data is missing'];
+            break;
+        }
+
+        $whereClauses = [];
+        foreach ($record as $key => $value) {
+            $whereClauses[] = "$key = '" . $conn->real_escape_string($value) . "'";
+        }
+        $whereClause = implode(" AND ", $whereClauses);
+
+        $sql = "DELETE FROM $table WHERE $whereClause";
         if ($conn->query($sql) === TRUE) {
             $response = ['status' => 'success', 'message' => 'Record deleted successfully'];
         } else {
@@ -38,13 +55,26 @@ switch ($action) {
         }
         break;
     case 'update':
-        $table = $_POST['table'];
-        $id = $_POST['id'];
-        $id_column = $_POST['id_column'];
-        $column = $_POST['column'];
-        $value = $conn->real_escape_string($_POST['value']);
+        $table = isset($input['table']) ? $input['table'] : '';
+        $record = isset($input['record']) ? $input['record'] : [];
+        $column = isset($input['column']) ? $input['column'] : '';
+        $value = isset($input['value']) ? $conn->real_escape_string($input['value']) : '';
 
-        $sql = "UPDATE $table SET $column = '$value' WHERE $id_column = $id";
+        if (empty($table) || empty($record) || empty($column)) {
+            $response = ['status' => 'error', 'message' => 'Missing required parameters'];
+            break;
+        }
+
+        $whereClauses = [];
+        foreach ($record as $key => $val) {
+            if ($key !== $column) { // Exclude the column being updated
+                $whereClauses[] = "$key = '" . $conn->real_escape_string($val) . "'";
+            }
+        }
+        $whereClause = implode(" AND ", $whereClauses);
+
+        $sql = "UPDATE $table SET $column = '$value' WHERE $whereClause";
+
         if ($conn->query($sql) === TRUE) {
             $response = ['status' => 'success', 'message' => 'Record updated successfully'];
         } else {
