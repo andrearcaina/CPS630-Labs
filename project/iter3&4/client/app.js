@@ -29,7 +29,31 @@ app.config(function($routeProvider) {
             templateUrl: 'pages/signup/signup.html',
             controller: 'SignUpController'
         })
+        /* If the admin is signed in, redirect the home page to the dbmaintain page
+        can use this in the future or use the isAdmin function in the home controller or something
+
+        .when('/home', {
+            templateUrl: 'pages/dbmaintain/dbmaintain.html',
+            controller: 'DbMaintainController'
+        }) 
+        
+        but for now use /dbmaintain
+        
+        */
+
+        .when('/dbmaintain', {
+            templateUrl: 'pages/dbmaintain/dbmaintain.html',
+            controller: 'DbMaintainController'
+        })
+
+        // same for cart
+
+        .when('/cart', {
+            templateUrl: 'pages/cart/cart.html',
+            controller: 'CartController'
+        })
+
         .otherwise({
-            redirectTo: '/home' // Default route
+            redirectTo: '/home'
         });
 });
