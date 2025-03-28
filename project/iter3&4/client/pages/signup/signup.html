@@ -2,27 +2,27 @@
 
 <body>
     <h2 style="font-family: Playwrite IT Moderna, serif; font-weight: 800; font-style: normal; font-size: 45px; margin-bottom: 0px;">Sign Up</h2>
-    <main style="padding-top: 0px;">
-        <center><form id="signupform" action="../api/auth.php" method="post">
-            <input type="hidden" name="signup" value="1">
+    <main style="padding-top: 0px;" ng-controller="SignUpController">
+        <center><form id="signupform" ng-submit="submitForm()">
+            <input type="hidden" ng-model="formData.signup" value="1">
             <label for="fname">First Name</label>
-            <input type="text" id="fname" name="fname"required>
+            <input type="text" id="fname" ng-model="formData.fname"required>
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lname" required>
+            <input type="text" id="lname" ng-model="formData.lname" required>
             <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" required>
+            <input type="date" id="dob" ng-model="formData.dob" required>
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" required>
+            <input type="text" id="email" ng-model="formData.email" required>
             <label for="password">Password</label>
-            <input type="text" id="password" name="password" required>
+            <input type="text" id="password" ng-model="formData.password" required>
             <label for="telno">Telephone Number</label>
-            <input type="text" id="telno" name="telno" required>
+            <input type="text" id="telno" ng-model="formData.telno" required>
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" required>
+            <input type="text" id="address" ng-model="formData.address" required>
             <label for="city">City</label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" ng-model="formData.city" required>
             <label for="postalcode">Postal Code</label>
-            <input type="text" id="postalcode" name="postalcode" required>
+            <input type="text" id="postalcode" ng-model="formData.postalcode" required>
             <input type="submit" value="Submit">
         </form></center>
         <p>Already have an account?</p><a href="./signin.php">Sign In Here!</a>

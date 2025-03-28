@@ -29,7 +29,48 @@ app.config(function($routeProvider) {
             templateUrl: 'pages/signup/signup.html',
             controller: 'SignUpController'
         })
+        /* If the admin is signed in, redirect the home page to the dbmaintain page
+        can use this in the future or use the isAdmin function in the home controller or something
+
+        .when('/home', {
+            templateUrl: 'pages/dbmaintain/dbmaintain.html',
+            controller: 'DbMaintainController'
+        }) 
+        
+        but for now use /dbmaintain
+        
+        */
+
+        .when('/dbmaintain', {
+            templateUrl: 'pages/dbmaintain/dbmaintain.html',
+            controller: 'DbMaintainController'
+        })
+
+        // same for cart
+
+        .when('/cart', {
+            templateUrl: 'pages/cart/cart.html',
+            controller: 'CartController'
+        })
+
         .otherwise({
-            redirectTo: '/home' // Default route
+            redirectTo: '/home'
         });
 });
+
+app.controller("SessionController", function($scope, $http) {
+    $http.get('http://localhost:8000/session.php', {withCredentials: true})
+        .then(function (response) {
+            console.log(response);
+            if (response.data.email) {
+                $scope.email = response.data.email;
+                
+            } else {
+                $scope.responseMessage = response.data.error;
+            }
+        })
+        .catch(function(error) {
+            $scope.responseMessage = "Error submitting Form";
+            console.error('Error', error);
+    })
+})
