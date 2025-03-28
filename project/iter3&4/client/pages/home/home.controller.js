@@ -16,7 +16,6 @@ app.controller("HomeController", function ($scope, $http, $timeout) {
                 max: 3000,
                 values: [$scope.filters['price-min'], $scope.filters['price-max']],
                 slide: function (event, ui) {
-                    // Update AngularJS scope variables when the slider changes
                     $timeout(function () {
                         $scope.filters['price-min'] = ui.values[0];
                         $scope.filters['price-max'] = ui.values[1];
