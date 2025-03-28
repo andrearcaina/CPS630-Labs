@@ -17,8 +17,8 @@
   }
   
   
-  .portrait{
-    justify-self: start;
-    height: 200px;
-    border-radius: 15px;
-  }
+.portrait{
+  justify-self: start;
+  height: 200px;
+  border-radius: 15px;
+}
