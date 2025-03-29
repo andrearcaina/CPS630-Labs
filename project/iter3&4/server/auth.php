@@ -66,8 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rowSalt = mysqli_fetch_assoc($resultSalt);
         $salt = $rowSalt['Salt'];
 
+        error_log("salt from db " . $salt);
+
         // Hash the password with the salt
         $hashpass = md5($password.$salt);
+
+        error_log("hashed pass " . $hashpass);
 
         $sql = "SELECT * FROM USERS WHERE Email='$email' AND Pass='$hashpass'";
         $result = $conn->query($sql);
