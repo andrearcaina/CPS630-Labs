@@ -3,12 +3,24 @@ session_start();
 include '../config/db.php';
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+header("Access-Control-Allow-Credentials: true");
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $item_id = isset($_POST['item_id']) ? $_POST['item_id'] : null;
+
+    $data = json_decode(file_get_contents('php://input'), true);
+    error_log(print_r($data, true));  
+    $item_id = isset($data['item_id']) ? intval($data['item_id']) : null;
+    error_log("Item ID: " . $item_id);
+    error_log("User Name:" . $_SESSION["fname"]);
+    error_log("Session ID: " . session_id());
 
     if($item_id) {
         $user_id = $_SESSION["user_id"];
+        error_log("User ID: " . $user_id);
 
         // Check if the item is already in the shopping cart
         $sql = "SELECT * FROM shopping WHERE UserID=$user_id AND ItemID=$item_id";
