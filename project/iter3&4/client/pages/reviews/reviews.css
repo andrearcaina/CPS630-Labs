@@ -1,7 +1,19 @@
+.reviews-wrapper {
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
 .reviews-container {
     max-width: 800px;
     margin: auto;
     padding-top: 40px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .review {
@@ -33,4 +45,85 @@
 .review .author {
     font-size: 0.9em;
     color: #888;
+}
+
+#reviewform {
+    margin-top: 0px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 325px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the form labels */
+#reviewform label {
+    font-weight: bold;
+    display: block;
+    margin-left:auto;
+    margin-top: 0px;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+
+/* Style the input fields */
+#reviewform input[type="text"],
+#reviewform input[type="email"] {
+    width: 77%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Add focus effect on input fields */
+#reviewform input[type="text"]:focus,
+#reviewform input[type="email"]:focus {
+    border-color: #4facfe;
+    padding: 10px;
+    outline: none;
+}
+
+/* Style the input fields */
+#reviewform input[type="text"],
+#reviewform input[type="number"] {
+    width: 77%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+/* Add focus effect on input fields */
+#reviewform input[type="text"]:focus,
+#reviewform input[type="password"]:focus {
+    border-color: #4facfe;
+    outline: none;
+}
+
+/* Style the submit button */
+#reviewform input[type="submit"] {
+    background: #f39c12;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 120px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s;
+}
+
+/* Hover effect for submit button */
+#reviewform input[type="submit"]:hover {
+    background: #00c9ff;
 }
