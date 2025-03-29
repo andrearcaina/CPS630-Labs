@@ -64,6 +64,23 @@ app.controller("HomeController", function ($scope, $http, $timeout) {
             cursor: "move",
             helper: "clone"
         });
+
+    $("#cart").droppable({
+        accept: ".card", // Only accepts items of the class card
+        drop: function(event, ui) {
+            const item_id = ui.draggable.attr("data-id");
+            console.log(item_id);
+            //alert("Added item: " +item_id+" to the cart!"); // Temporary alert, will be replaced by API call
+            $http.post('http://localhost:8000/cart.php', { item_id: item_id }, { withCredentials: true })
+                .then(function(response) {
+                    console.log('Item added to cart:', response.data);
+                })
+                .catch(function(error) {
+                    console.error('Error adding item to cart:', error);
+                });
+        }
+    });
+
     };
 
     $scope.initSlider();

@@ -40,7 +40,7 @@
         <main class="items-section">
             <div class="card-grid" id="item-list">
                 <div ng-if="errorMessage" class="error-message">{{ errorMessage }}</div>
-                <div ng-if="!errorMessage" class="card" ng-repeat="item in items" id="{{ item.ItemID }}">
+                <div ng-if="!errorMessage" class="card" ng-repeat="item in items" data-id="{{ item.ItemID }}">
                     <h3>{{ item.Item_name }}</h3>
                     <p>${{ item.Price }}</p>
                     <img ng-src="{{ item.Image_URL }}" alt="{{ item.Item_name }}" class="card-image">
